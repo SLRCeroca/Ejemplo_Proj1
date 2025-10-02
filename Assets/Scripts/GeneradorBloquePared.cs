@@ -10,6 +10,7 @@ public class GeneradorBloquePared : MonoBehaviour
     private const float LIMITE_POSTERIOR = 90f;
 
     public GameObject prefabBloquePared;
+    public GameObject prefabObstaculo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +23,7 @@ public class GeneradorBloquePared : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void GenerarBloquesPared()
@@ -49,6 +50,12 @@ public class GeneradorBloquePared : MonoBehaviour
         ParedSuperiorDerecha.transform.position = new Vector3(
             LIMITE_DERECHA,
             LIMITE_SUPERIOR,
+            LIMITE_POSTERIOR
+        );
+        GameObject Obstaculo = Instantiate(prefabObstaculo);
+        Obstaculo.transform.position = new Vector3(
+            Random.RandomRange(LIMITE_IZQUIERDA, LIMITE_DERECHA),
+            Random.RandomRange(LIMITE_INFERIOR, LIMITE_SUPERIOR),
             LIMITE_POSTERIOR
         );
     }
