@@ -4,6 +4,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float vel = 10f;
+    private int numEscudos = 4;
     private Camera camera;
     private Vector3 limiteInferiorIzquierda;
     private Vector3 limiteSuperiorDerecha;
@@ -67,7 +68,10 @@ public class Movement : MonoBehaviour
     {
         if(objectoTocado.tag == "Obstaculo")
         {
-            Destroy(gameObject);
+            numEscudos--;
+            if (numEscudos == 0){
+                Destroy(gameObject);
+            }
         }
     }
 }
