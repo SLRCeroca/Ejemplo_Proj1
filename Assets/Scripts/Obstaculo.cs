@@ -18,7 +18,20 @@ public class Obstaculo : MonoBehaviour
             transform.position.y,
             transform.position.z - vel * Time.deltaTime
         );
-        if(transform.position.z < LIMIT_Z_NEGATIVO){
+        if (transform.position.z < LIMIT_Z_NEGATIVO)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+    
+    void OnTriggerEnter(Collider objectoTocado)
+    {
+        if(objectoTocado.tag == "AmogusJugador")
+        {
+            Destroy(gameObject);
+        }else if(objectoTocado.tag == "Bala")
+        {
             Destroy(gameObject);
         }
     }

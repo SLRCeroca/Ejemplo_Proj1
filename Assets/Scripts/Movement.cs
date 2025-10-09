@@ -62,4 +62,12 @@ public class Movement : MonoBehaviour
         //Aplicamos la posicion
         transform.position = nuevaPosicion;
     }
+
+    void OnTriggerEnter(Collider objectoTocado)
+    {
+        if(objectoTocado.tag == "Obstaculo")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
